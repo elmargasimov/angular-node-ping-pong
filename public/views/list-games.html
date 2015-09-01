@@ -1,0 +1,30 @@
+<section class="group mrg-btm-20" data-ng-controller="ListGamesController as ctrl">
+    <h2 class="align-center">Latest Games</h2>
+
+    <div class="align-center mrg-btm-20" data-ng-repeat="game in ctrl.games | limitTo:5">
+
+        <div class="row">
+            <div class="col-6 col-offset-3">
+                <b data-ng-bind="game.playerOne.name"></b>
+                <span data-ng-bind-template="{{game.playerOne.score}} - {{game.playerTwo.score}}"></span>
+                <b data-ng-bind="game.playerTwo.name"></b>
+            </div>
+            <div class="col-3">
+                <button type="button" data-ng-click="ctrl.remove(game, $index)" class="btn btn-small btn-transparent">x</button>
+            </div>
+        </div>
+        <div>
+            <span class="separate" data-ng-repeat="set in game.sets" data-ng-bind-template="{{set.playerOneScore}} - {{set.playerTwoScore}}"></span>
+        </div>
+
+
+    </div>
+
+    <div class="align-center" data-ng-if="!ctrl.games.$resolved">
+        <strong>Fetching...</strong>
+    </div>
+
+    <div class="align-center" data-ng-if="ctrl.games.$resolved && !ctrl.games.length">
+        <strong>Bummer, you haven't added any games yet...</strong>
+    </div>
+</section>

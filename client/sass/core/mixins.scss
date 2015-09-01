@@ -1,0 +1,18 @@
+///// Mixins
+
+@mixin transition($el, $time) {
+  -webkit-transition: $el $time;
+  -moz-transition: $el $time;
+  -o-transition: $el $time;
+  transition: $el $time;
+}
+
+@mixin bp($point) {
+  @if $point == only-small {
+    @media (min-width:0px) and (max-width:767px) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width:1024px) { @content; }
+  }
+}
+

@@ -1,0 +1,9 @@
+<form class="group stretch mrg-btm-20" name="addPlayerForm" data-ng-controller="AddPlayerController as ctrl" data-ng-submit="ctrl.submit(addPlayerForm)">
+    <h2 class="align-center">Add a new player</h2>
+
+    <fieldset>
+        <input type="text" class="control-transparent stretch" placeholder="e.g. Jimbo" data-ng-model="ctrl.player.name">
+    </fieldset>
+
+    <button type="submit" class="btn btn-burgundy btn-stretch mrg-top-20">Add Player</button>
+</form>

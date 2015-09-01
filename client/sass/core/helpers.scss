@@ -1,0 +1,60 @@
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.padding-radius {
+  padding: 15px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.mrg-top-15 {
+  margin-top: 15px;
+}
+
+.mrg-top-20 {
+  margin-top: 20px;
+}
+
+.mrg-btm-20 {
+  margin-bottom: 20px;
+}
+
+.group {
+  @extend .padding-radius;
+  background: $color-blue-1;
+  background: $color-blue-1 url(/img/ping-pong-icon.png);
+  background-size: 150px;
+  &.stretch {
+    width: 100%;
+  }
+}
+
+.bg-transparent {
+  background: transparentize($color-dark, 0.7);
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: transparentize($color-dark, 0.5);
+  }
+}
+
+.separate {
+  margin-right: 10px;
+  &:after {
+    content: '|';
+    margin-left: 10px;
+  }
+  &:last-child {
+    &:after {
+      content: '';
+      margin-left: 0;
+    }
+  }
+}

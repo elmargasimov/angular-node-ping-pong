@@ -1,0 +1,22 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $color-dark;
+  font-size: 1.5rem;
+  font-family: $fnt-sans-serif;
+  color: $color-white;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 30px;
+}

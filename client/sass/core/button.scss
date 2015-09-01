@@ -1,0 +1,46 @@
+.btn {
+  @extend .padding-radius;
+  border: none;
+  padding: 15px;
+  @include transition(all, 0.1s);
+  background: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.btn-small {
+    padding: 5px 10px;
+  }
+
+  &.btn-transparent {
+    @extend .bg-transparent;
+    &:active {
+      background: transparentize($color-dark, 0.3);
+    }
+  }
+
+  &.btn-blue {
+    background: $color-blue-1;
+    &:hover {
+      background: $color-blue-2;
+    }
+    &:active {
+      background: lighten($color-blue-2, 10%);
+    }
+  }
+
+  &.btn-burgundy {
+    background: $color-burgundy-1;
+    &:hover {
+      background: $color-burgundy-2;
+    }
+    &:active {
+      background: lighten($color-burgundy-2, 10%);
+    }
+  }
+
+  &.btn-stretch {
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+<section class="table-responsive mrg-btm-20" data-ng-controller="LeaderBoardController as ctrl">
+    <table data-ng-if="ctrl.players.length">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th class="align-left">Name</th>
+            <th>Won</th>
+            <th>Lost</th>
+            <th>Won/Lost %</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="player in ctrl.players | orderBy:'-points'">
+            <td data-ng-bind="$index + 1"></td>
+            <td class="align-left" data-ng-bind="player.name"></td>
+            <td data-ng-bind="player.wins"></td>
+            <td data-ng-bind="player.losses"></td>
+            <td data-ng-bind="player.ratio | percentage:2"></td>
+            <td data-ng-bind="player.points"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div data-ng-if="!ctrl.players.length" class="group stretch mrg-btm-20">
+        <strong>No games have been played yet...</strong>
+    </div>
+</section>

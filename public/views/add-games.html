@@ -1,0 +1,49 @@
+<form class="group stretch mrg-btm-20" name="addGameForm" data-ng-controller="AddGamesController as ctrl" data-ng-submit="ctrl.save(addGameForm)">
+    <h2 class="align-center">Add Games</h2>
+
+    <fieldset class="row">
+        <div class="col-5">
+            <select id="select-player-one"
+                    class="control-transparent stretch"
+                    name="playerOne"
+                    data-ng-model="ctrl.game.playerOne"
+                    ng-options="player.name for player in ctrl.players"
+                    required>
+                <option value="">Please select...</option>
+            </select>
+        </div>
+        <div class="col-2 align-center mrg-top-15 mrg-btm-20">
+            <strong>VS</strong>
+        </div>
+        <div class="col-5">
+            <select id="select-player-two"
+                    class="control-transparent stretch"
+                    name="playerTwo"
+                    data-ng-model="ctrl.game.playerTwo"
+                    ng-options="player.name for player in ctrl.players"
+                    required>
+                <option value="">Please select...</option>
+            </select>
+        </div>
+    </fieldset>
+
+    <div class="align-center mrg-top-20 mrg-btm-20">
+        <strong>Score (max. of 5)</strong>
+    </div>
+
+    <div class="align-center" data-ng-repeat="set in ctrl.game.sets" data-ng-if="ctrl.game.sets.length">
+        <span data-ng-bind-template="{{set.playerOneScore}} - {{set.playerTwoScore}}"></span>
+    </div>
+
+    <fieldset class="row">
+        <div class="col-4 col-offset-1">
+            <input class="control-transparent stretch align-center" type="text" name="playerOneScore" data-ng-model="ctrl.set.playerOneScore" placeholder="e.g. 11" />
+        </div>
+        <div class="col-4 col-offset-2">
+            <input class="control-transparent stretch align-center" type="text" name="playerTwoScore" data-ng-model="ctrl.set.playerTwoScore" placeholder="e.g. 9" />
+        </div>
+    </fieldset>
+
+    <button type="button" class="btn btn-transparent btn-stretch" data-ng-click="ctrl.addSet(ctrl.set)">Add Set</button>
+    <button type="submit" class="btn btn-burgundy btn-stretch mrg-top-20">Add Game</button>
+</form>
